@@ -4,17 +4,23 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "tsc && tsc-alias",
+    "compileDev": "tsc && tsc-alias && node dist/app.js",
+    "exe": "node dist/app.js",
+    "dev": "nodemon -e ts  --exec \"pnpm run compileDev\"",
+    "lint": "eslint ."
   },
   "author": "lotusotho",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "api-mapaches": "file:",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "tsc-alias": "^1.8.10",
     "typescript": "^5.7.3"
