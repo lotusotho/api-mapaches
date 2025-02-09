@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  api-mapaches:
+    container_name: APIMapaches
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    environment:
+      - PORT=${PORT}
+      - SSH_USER=${SSH_USER}
+      - SSH_PASS=${SSH_PASS}
+      - PG_USER=${PG_USER}
+      - PG_PASS=${PG_PASS}
+      - PG_DB=${PG_DB}
+    ports:
+      - '${PORT}:${PORT}'
+    env_file:
+      - ../.env
