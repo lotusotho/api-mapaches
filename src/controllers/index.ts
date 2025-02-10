@@ -5,5 +5,5 @@ export async function HelloController(
   res: Response,
   next: NextFunction
 ): Promise<any> {
-  res.status(200).send({ message: 'server is working' });
+  res.status(200).send({ message: 'API server is up and running' });
 }

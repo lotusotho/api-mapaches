@@ -13,7 +13,7 @@ export async function checkSSHserver(): Promise<any> {
       })
       .on('error', (err) => {
         const error = err as Error;
-        reject({ error: 'SSH Server is down: ' + error.message });
+        reject({ message: 'SSH Server is down: ' + error.message });
       })
       .connect({
         host: 'server.mapach.es',
@@ -38,7 +38,7 @@ export async function checkPostgresServer(): Promise<any> {
     return { message: 'PostgreSQL Server is up and running' };
   } catch (err) {
     const error = err as Error;
-    return { error: 'PostgreSQL Server is down: ' + error.message };
+    return { message: 'PostgreSQL Server is down: ' + error.message };
   } finally {
     await client.end();
   }
@@ -51,7 +51,7 @@ export async function checkBlogAPI(): Promise<any> {
     return { message: data.message };
   } catch (err) {
     const error = err as Error;
-    return { error: 'Error fetching Blog API: ' + error.message };
+    return { message: 'Error fetching Blog API: ' + error.message };
   }
 }
 
@@ -61,11 +61,11 @@ export async function checkYachtServer(): Promise<any> {
     if (response.ok) {
       return { message: 'Yacht server is up and running' };
     } else {
-      return { error: 'Yacht server is down' };
+      return { message: 'Yacht server is down' };
     }
   } catch (err) {
     const error = err as Error;
-    return { error: 'Error checking Yacht server: ' + error.message };
+    return { message: 'Error checking Yacht server: ' + error.message };
   }
 }
 
@@ -75,11 +75,11 @@ export async function checkEasyWGServer(): Promise<any> {
     if (response.ok) {
       return { message: 'Easy-WG server is up and running' };
     } else {
-      return { error: 'Easy-WG server is down' };
+      return { message: 'Easy-WG server is down' };
     }
   } catch (err) {
     const error = err as Error;
-    return { error: 'Error checking Easy-WG server: ' + error.message };
+    return { message: 'Error checking Easy-WG server: ' + error.message };
   }
 }
 
@@ -89,10 +89,10 @@ export async function checkWebminServer(): Promise<any> {
     if (response.ok) {
       return { message: 'Webmin server is up and running' };
     } else {
-      return { error: 'Webmin server is down' };
+      return { message: 'Webmin server is down' };
     }
   } catch (err) {
     const error = err as Error;
-    return { error: 'Error checking Webmin server: ' + error.message };
+    return { message: 'Error checking Webmin server: ' + error.message };
   }
 }
