@@ -8,7 +8,7 @@ const router = Router();
 router.get('/', HelloController);
 
 // Check status
-router.get('/status', (req, res) => {
+router.get('/health', (req, res) => {
   res.send(serverStatusCache);
 });
 
