@@ -14,6 +14,10 @@ COPY . .
 
 RUN pnpm run compile
 
+RUN mkdir -p /app/logs && chown -R node:node /app
+
+USER 1000
+
 EXPOSE 4000
 
 CMD ["node", "dist/app.js"]
