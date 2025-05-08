@@ -1,6 +1,5 @@
 import {
   checkSSHserver,
-  checkPostgresServer,
   checkBlogAPI,
   checkYachtServer,
   checkEasyWGServer,
@@ -12,7 +11,6 @@ export function scheduleServerChecks() {
   async function updateStatus() {
     try {
       serverStatusCache.ssh = await checkSSHserver();
-      serverStatusCache.postgres = await checkPostgresServer();
       serverStatusCache.blogAPI = await checkBlogAPI();
       serverStatusCache.yacht = await checkYachtServer();
       serverStatusCache.easyWG = await checkEasyWGServer();

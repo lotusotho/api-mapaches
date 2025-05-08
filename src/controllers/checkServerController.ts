@@ -1,7 +1,5 @@
 import { Client as ClientSSH } from 'ssh2';
 import { config } from '../config.js';
-import pkg from 'pg';
-const { Client: ClientPG } = pkg;
 
 export async function checkSSHserver(): Promise<any> {
   return new Promise((resolve, reject) => {
@@ -22,26 +20,6 @@ export async function checkSSHserver(): Promise<any> {
         password: config.SSH_PASS,
       });
   });
-}
-
-export async function checkPostgresServer(): Promise<any> {
-  const client = new ClientPG({
-    host: 'server.mapach.es',
-    port: 5432,
-    user: config.PG_USER,
-    password: config.PG_PASS,
-    database: config.PG_DB,
-  });
-
-  try {
-    await client.connect();
-    return { message: 'PostgreSQL Server is up and running' };
-  } catch (err) {
-    const error = err as Error;
-    return { message: 'PostgreSQL Server is down: ' + error.message };
-  } finally {
-    await client.end();
-  }
 }
 
 export async function checkBlogAPI(): Promise<any> {
