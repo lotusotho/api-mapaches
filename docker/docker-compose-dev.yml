@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
   api-mapaches:
-    container_name: APIMapaches
+    container_name: api-mapaches
+    platform: linux/x86_64
     build:
       context: ..
       dockerfile: Dockerfile

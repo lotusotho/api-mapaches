@@ -3,6 +3,7 @@ version: '3.8'
 services:
   api-mapaches:
     container_name: api-mapaches
+    platform: linux/x86_64
     image: ghcr.io/lotusotho/api-mapaches:main
     environment:
       - PORT=${PORT}
