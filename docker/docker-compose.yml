@@ -9,9 +9,6 @@ services:
       - PORT=${PORT}
       - SSH_USER=${SSH_USER}
       - SSH_PASS=${SSH_PASS}
-      - PG_USER=${PG_USER}
-      - PG_PASS=${PG_PASS}
-      - PG_DB=${PG_DB}
     ports:
       - '${PORT}:${PORT}'
     env_file:
